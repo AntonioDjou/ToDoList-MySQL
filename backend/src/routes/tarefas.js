@@ -44,6 +44,7 @@ router.put('/:id', (req, res) => {
 
     // Validação simples: o status deve ser um booleano
     if (typeof status !== 'boolean') {
+        console.warn(`Tentativa de atualizar status com valor não booleano: ${status} (tipo: ${typeof status}) para ID: ${id}`);
         return res.status(400).json({ mensagem: "O status deve ser um valor booleano (true/false)." });
     }
 
@@ -56,6 +57,7 @@ router.put('/:id', (req, res) => {
         if (result.affectedRows === 0) {
             return res.status(404).json({ mensagem: 'Tarefa não encontrada.' });
         }
+        console.log(`Tarefa ID ${id} status atualizado para: ${status}`); // Adicionado log para verificação
         res.json({ mensagem: 'Status da tarefa atualizado com sucesso.' });
     });
 });

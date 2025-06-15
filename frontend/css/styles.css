@@ -44,23 +44,26 @@ button:hover {
 }
 
 table {
-    width: 80%;
+    width: 90%;
     margin: 20px auto; /* Centraliza a tabela */
     border-collapse: collapse;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     background-color: #fff;
 }
 
+
 th, td {
     border: 1px solid #ddd;
-    padding: 12px;
+    padding: 15px 10px;
     text-align: left;
+    vertical-align: middle; /* Alinha o conteúdo verticalmente ao meio */
 }
 
 th {
     background-color: #f2f2f2;
     font-weight: bold;
     color: #555;
+    white-space: nowrap; /* Evita que o texto do cabeçalho quebre em várias linhas, se possível */
 }
 
 /* Estilo para tarefas concluídas */
@@ -70,17 +73,36 @@ th {
     background-color: #e6ffe6; /* Fundo verde claro para concluídas */
 }
 
-/* Estilos para os botões de ação */
+/* Estilos para os botões de ação dentro da tabela */
+td button {
+    padding: 8px 12px;
+    font-size: 14px;
+    margin: 2px;
+    border-radius: 4px; /* Adicionado para botões menores */
+}
+
+/* Estilo padrão para o botão de status (quando a tarefa está pendente - "Concluir") */
 .status-btn {
-    background-color: #28a745; /* Verde para marcar/desmarcar */
-    margin-right: 5px;
+    background-color: #28a745; /* Verde padrão para "Concluir" */
+    color: white;
 }
 .status-btn:hover {
     background-color: #218838;
 }
 
+/* Estilo para o botão de status QUANDO a tarefa está concluída ("Desmarcar") */
+.tarefa-concluida .status-btn {
+    background-color: #ffc107; /* Amarelo para "Desmarcar" */
+    color: #343a40; /* Cor do texto para contraste com o amarelo */
+}
+.tarefa-concluida .status-btn:hover {
+    background-color: #e0a800; /* Amarelo mais escuro no hover */
+}
+
+
 .delete-btn {
     background-color: #dc3545; /* Vermelho para deletar */
+    color: white;
 }
 .delete-btn:hover {
     background-color: #c82333;
